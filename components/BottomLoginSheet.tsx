@@ -1,3 +1,4 @@
+import OAuth from '@/components/OAuth';
 import Colors from '@/constants/Colors';
 import { defaultStyles } from '@/constants/Styles';
 import { Ionicons } from '@expo/vector-icons';
@@ -40,6 +41,7 @@ const BottomLoginSheet = () => {
           <Text style={styles.btnDarkText}>Log in</Text>
         </TouchableOpacity>
       </Link>
+      <OAuth />
     </View>
   );
 };
