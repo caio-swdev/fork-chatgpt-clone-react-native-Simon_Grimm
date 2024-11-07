@@ -39,7 +39,7 @@ const Page = () => {
         apiKey: key,
         organization,
       }),
-    []
+    [key, organization]
   );
 
   const onLayout = (event: any) => {

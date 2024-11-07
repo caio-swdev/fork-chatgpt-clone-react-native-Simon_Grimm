@@ -48,8 +48,8 @@ const ChatPage = () => {
       new OpenAI({
         apiKey: key,
         organization,
-
-    []
+      }),
+    [key, organization]
   );
 
   useEffect(() => {
