@@ -55,6 +55,14 @@ export const CustomDrawerContent = (props: any) => {
           // Delete the chat
           await deleteChat(db, chatId);
           loadChats();
+          // navigate to the last chat
+          const result = (await getChats(db)) as Chat[];
+          if (result.length > 0) {
+            const rId = result[result.length - 1].id;
+            router.push(`/(auth)/(drawer)/(chat)/${rId}`);
+          } else {
+            router.navigate('/(auth)/(drawer)/(chat)/new');
+          }
         },
       },
     ]);
