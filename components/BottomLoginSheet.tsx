@@ -10,37 +10,6 @@ const BottomLoginSheet = () => {
 
   return (
     <View style={[styles.container, { paddingBottom: bottom }]}>
-      <TouchableOpacity style={[defaultStyles.btn, styles.btnLight]}>
-        <Ionicons name="logo-apple" size={14} style={styles.btnIcon} />
-        <Text style={styles.btnLightText}>Continue with Apple</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={[defaultStyles.btn, styles.btnDark]}>
-        <Ionicons name="logo-google" size={16} style={styles.btnIcon} color={'#fff'} />
-        <Text style={styles.btnDarkText}>Continue with Google</Text>
-      </TouchableOpacity>
-      <Link
-        href={{
-          pathname: '/login',
-          params: { type: 'register' },
-        }}
-        style={[defaultStyles.btn, styles.btnDark]}
-        asChild>
-        <TouchableOpacity>
-          <Ionicons name="mail" size={20} style={styles.btnIcon} color={'#fff'} />
-          <Text style={styles.btnDarkText}>Sign up with email</Text>
-        </TouchableOpacity>
-      </Link>
-      <Link
-        href={{
-          pathname: '/login',
-          params: { type: 'login' },
-        }}
-        style={[defaultStyles.btn, styles.btnOutline]}
-        asChild>
-        <TouchableOpacity>
-          <Text style={styles.btnDarkText}>Log in</Text>
-        </TouchableOpacity>
-      </Link>
       <OAuth />
     </View>
   );
@@ -51,7 +20,8 @@ const styles = StyleSheet.create({
     position: 'absolute',
     bottom: 0,
     width: '100%',
-    backgroundColor: '#000',
+    // backgroundColor: '#000',
+    backgroundColor: '#fff',
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
     padding: 26,

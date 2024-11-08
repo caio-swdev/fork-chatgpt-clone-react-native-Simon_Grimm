@@ -1,6 +1,7 @@
-import { TouchableOpacity, Text } from "react-native";
+import { TouchableOpacity, Text, StyleSheet } from "react-native";
 
 import { ButtonProps } from "@/types/type";
+import Colors from "@/constants/Colors";
 
 const getBgVariantStyle = (variant: ButtonProps["bgVariant"]) => {
   switch (variant) {
@@ -45,11 +46,23 @@ const CustomButton = ({
   return (
     <TouchableOpacity
       onPress={onPress}
-      className={`w-full rounded-full p-3 flex flex-row justify-center items-center shadow-md shadow-neutral-400/70 ${getBgVariantStyle(bgVariant)} ${className}`}
+      // className={`w-full rounded-full p-3 flex flex-row justify-center items-center shadow-md shadow-neutral-400/70 ${getBgVariantStyle(bgVariant)} ${className}`}
+      style={[
+        {
+          flexDirection: 'row',
+          justifyContent: 'center',
+          alignItems: 'center',
+          width: '100%',
+          padding: 12,
+          borderRadius: 25,
+          gap: 12,
+        },
+      ]}
+
       {...props}
     >
       {IconLeft && <IconLeft />}
-      <Text className={`text-lg font-bold ${getTextVariantStyle(textVariant)}`}>
+      <Text style={styles.btnLightText}>
         {title}
       </Text>
       {IconRight && <IconRight />}
@@ -58,3 +71,37 @@ const CustomButton = ({
 };
 
 export default CustomButton;
+
+const styles = StyleSheet.create({
+  container: {
+    position: 'absolute',
+    bottom: 0,
+    width: '100%',
+    backgroundColor: '#000',
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+    padding: 26,
+    gap: 14,
+  },
+  btnLight: {
+    backgroundColor: '#fff',
+  },
+  btnLightText: {
+    color: '#000',
+    fontSize: 20,
+  },
+  btnDark: {
+    backgroundColor: Colors.grey,
+  },
+  btnDarkText: {
+    color: '#fff',
+    fontSize: 20,
+  },
+  btnOutline: {
+    borderWidth: 3,
+    borderColor: Colors.grey,
+  },
+  btnIcon: {
+    paddingRight: 6,
+  },
+});
