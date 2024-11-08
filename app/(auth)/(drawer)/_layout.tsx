@@ -17,7 +17,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { FontAwesome6 } from '@expo/vector-icons';
 import { DrawerActions } from '@react-navigation/native';
 import { useEffect, useState } from 'react';
-import { getChats, renameChat } from '@/utils/Database';
+import { deleteChat, getChats, renameChat } from '@/utils/Database';
 import { useSQLiteContext } from 'expo-sqlite/next';
 import { useDrawerStatus } from '@react-navigation/drawer';
 import { Chat } from '@/utils/Interfaces';
@@ -53,7 +53,7 @@ export const CustomDrawerContent = (props: any) => {
         text: 'Delete',
         onPress: async () => {
           // Delete the chat
-          await db.runAsync('DELETE FROM chats WHERE id = ?', chatId);
+          await deleteChat(db, chatId);
           loadChats();
         },
       },

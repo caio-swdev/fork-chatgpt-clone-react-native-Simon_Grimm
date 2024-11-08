@@ -4,7 +4,7 @@ import { defaultStyles } from '@/constants/Styles';
 import { keyStorage, storage } from '@/utils/Storage';
 import { Redirect, Stack, useLocalSearchParams } from 'expo-router';
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { Image, View, StyleSheet, KeyboardAvoidingView, Platform, Alert } from 'react-native';
+import { Image, View, StyleSheet, KeyboardAvoidingView, Platform } from 'react-native';
 import { useMMKVString } from 'react-native-mmkv';
 import OpenAI from 'react-native-openai';
 import { FlashList } from '@shopify/flash-list';
@@ -62,7 +62,6 @@ const ChatPage = () => {
         }
         if (payload.choices[0]?.finishReason) {
           // save the last message
-
           addMessage(db, parseInt(chatIdRef.current), {
             content: messages[messages.length - 1].content,
             role: Role.Bot,
